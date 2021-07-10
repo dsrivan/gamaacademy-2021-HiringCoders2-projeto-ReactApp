@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function App() {
+
+  const [usuario, setUsuario] = useState('dsrivan');
+
+  function handlePesquisa() {
+    const link = `https://api.github.com/users/${usuario}/repos`;
+
+    axios.get(link)
+      .then(response => console.log(response.data));
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+      <label htmlFor="inputName">
+        Name
+      </label>
+      <br />
+      <input type="text" placeholder="type your name here" value={usuario} onChange={e => setUsuario(e.target.value)} />
+      <br />
+      <br />
+      <input type="button" value="Button" onClick={handlePesquisa} />
+    </>
   );
 }
 
