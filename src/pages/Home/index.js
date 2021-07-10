@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import * as S from './styled';
+
 function App() {
 
     const [usuario, setUsuario] = useState('dsrivan');
@@ -13,16 +15,11 @@ function App() {
     }
     return (
 
-        <>
-            <label htmlFor="inputName">
-                Name
-            </label>
+        <S.Container>
+            <S.Input placeholder="type your name here" value={usuario} onChange={e => setUsuario(e.target.value)}></S.Input>
             <br />
-            <input type="text" placeholder="type your name here" value={usuario} onChange={e => setUsuario(e.target.value)} />
-            <br />
-            <br />
-            <input type="button" value="Button" onClick={handlePesquisa} />
-        </>
+            <S.Button onClick={handlePesquisa}>Pesquisar</S.Button>
+        </S.Container>
     );
 }
 
