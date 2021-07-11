@@ -11,7 +11,7 @@ export default function Repositories() {
         repositoriesName = JSON.parse(repositoriesName);
         setRepositories(repositoriesName);
 
-        localStorage.clear();
+        //localStorage.clear();
 
     }, []);
 
@@ -23,11 +23,12 @@ export default function Repositories() {
                     return (
                         <S.ListItem>
                             Repositório: {repository}
-                            <S.ListItemIcon>{'>'}</S.ListItemIcon>
+                            <S.ListItemIcon>º</S.ListItemIcon>
                         </S.ListItem>
                     )
                 })}
             </S.List>
+            <S.LinkHome to="/">Voltar</S.LinkHome>
         </S.Container>
     );
 }

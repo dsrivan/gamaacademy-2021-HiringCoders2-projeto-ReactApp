@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 export const Container = styled.div`
     width: 100%;
     max-width: 991px;
@@ -42,4 +44,16 @@ export const ListItem = styled.li`
 export const ListItemIcon = styled.span`
     display: inline-block;
     transform: rotate(90deg);
+`;
+
+export const LinkHome = styled(Link)`
+    display: block;
+    width: 6rem;
+    text-align: center;
+    margin: 2rem auto;
+    background: linear-gradient(45deg, deeppink,darkviolet);
+    padding: .5rem 0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
 `;

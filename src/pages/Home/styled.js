@@ -29,6 +29,7 @@ export const Button = styled.button`
     position: relative;
     padding: .7rem 1rem;
     color: #fff;
+    cursor: pointer;
 
     &:focus,
     &:active {
