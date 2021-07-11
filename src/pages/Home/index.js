@@ -11,6 +11,8 @@ function App() {
 
     const [usuario, setUsuario] = useState('dsrivan');
 
+    const [erro, setErro] = useState(false);
+
     function handlePesquisa() {
         const link = `https://api.github.com/users/${usuario}/repos`;
 
@@ -26,16 +28,22 @@ function App() {
 
                 localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
 
+                setErro(false);
+
                 history.push('./repositories');
+            })
+            .catch((error) => {
+                setErro(true);
             });
     }
     return (
-
-        <S.Container>
-            <S.Input placeholder="type your name here" value={usuario} onChange={e => setUsuario(e.target.value)}></S.Input>
-            <br />
-            <S.Button onClick={handlePesquisa}>Pesquisar</S.Button>
-        </S.Container>
+        <S.HomeContainer>
+            <S.Content>
+                <S.Input placeholder="type your name here" value={usuario} onChange={e => setUsuario(e.target.value)}></S.Input>
+                <S.Button onClick={handlePesquisa}>Pesquisar</S.Button>
+            </S.Content>
+            {erro ? <S.ErrorMessage>Ocorreu um erro. Tente novamente.</S.ErrorMessage> : ''}
+        </S.HomeContainer>
     );
 }
 
