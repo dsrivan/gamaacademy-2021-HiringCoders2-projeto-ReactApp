@@ -31,9 +31,9 @@ export default function Repositories() {
         <S.Container>
             <S.Title>Repositórios</S.Title>
             <S.List>
-                {repositories.map((repository) => {
+                {repositories.map((repository, index) => {
                     return (
-                        <S.ListItem>
+                        <S.ListItem key={index}>
                             Repositório: {repository}
                             <S.ListItemIcon>º</S.ListItemIcon>
                         </S.ListItem>

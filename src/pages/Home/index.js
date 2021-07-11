@@ -13,28 +13,43 @@ function App() {
 
     const [erro, setErro] = useState(false);
 
+    const [textError, setTextError] = useState('');
+
     function handlePesquisa() {
-        const link = `https://api.github.com/users/${usuario}/repos`;
 
-        axios.get(link)
-            .then(response => {
-                const repositories = response.data;
+        setErro(false);
 
-                const repositoriesName = [];
+        if (usuario.length) {
 
-                repositories.map((repository) => {
-                    repositoriesName.push(repository.name);
+            const link = `https://api.github.com/users/${usuario}/repos`;
+
+            axios.get(link)
+                .then(response => {
+                    const repositories = response.data;
+
+                    const repositoriesName = [];
+
+                    repositories.map((repository) => {
+                        repositoriesName.push(repository.name);
+                    });
+
+                    localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
+
+                    setErro(false);
+
+                    history.push('./repositories');
+                })
+                .catch((error) => {
+                    setErro(true);
+                    setTextError('Usuário não encontrado');
+                    // console.log(error.response.status)
                 });
+        } else {
 
-                localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
+            setErro(true);
+            setTextError('Digite para pesquisar');
 
-                setErro(false);
-
-                history.push('./repositories');
-            })
-            .catch((error) => {
-                setErro(true);
-            });
+        }
     }
     return (
         <S.HomeContainer>
@@ -42,7 +57,7 @@ function App() {
                 <S.Input placeholder="type your name here" value={usuario} onChange={e => setUsuario(e.target.value)}></S.Input>
                 <S.Button onClick={handlePesquisa}>Pesquisar</S.Button>
             </S.Content>
-            {erro ? <S.ErrorMessage>Ocorreu um erro. Tente novamente.</S.ErrorMessage> : ''}
+            {erro ? <S.ErrorMessage>{textError}</S.ErrorMessage> : ''}
         </S.HomeContainer>
     );
 }
