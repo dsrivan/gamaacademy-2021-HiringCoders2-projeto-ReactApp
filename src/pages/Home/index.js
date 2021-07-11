@@ -11,7 +11,17 @@ function App() {
         const link = `https://api.github.com/users/${usuario}/repos`;
 
         axios.get(link)
-            .then(response => console.log(response.data));
+            .then(response => {
+                const repositories = response.data;
+
+                const repositoriesName = [];
+
+                repositories.map((repository) => {
+                    repositoriesName.push(repository.name);
+                });
+
+                localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
+            });
     }
     return (
 
