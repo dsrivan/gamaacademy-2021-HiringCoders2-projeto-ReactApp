@@ -3,7 +3,11 @@ import axios from 'axios';
 
 import * as S from './styled';
 
+import { useHistory } from 'react-router-dom';
+
 function App() {
+
+    const history = useHistory();
 
     const [usuario, setUsuario] = useState('dsrivan');
 
@@ -21,6 +25,8 @@ function App() {
                 });
 
                 localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
+
+                history.push('./repositories');
             });
     }
     return (
