@@ -10,11 +10,15 @@ export default function Repositories() {
 
     const [repositories, setRepositories] = useState([]);
 
+    const [erro, setErro] = useState(true);
+
     useEffect(() => {
         let repositoriesName = localStorage.getItem('repositoriesName');
 
         // if (repositoriesName !== null) {
         if (repositoriesName) {
+
+            setErro((repositoriesName.length <= 2) ? true : false);
 
             repositoriesName = JSON.parse(repositoriesName);
             setRepositories(repositoriesName);
@@ -40,6 +44,7 @@ export default function Repositories() {
                     )
                 })}
             </S.List>
+            {erro ? <S.ErrorMessage>Nenhuma informação a ser exibida</S.ErrorMessage> : ''}
             <S.LinkHome to="/">Voltar</S.LinkHome>
         </S.Container>
     );

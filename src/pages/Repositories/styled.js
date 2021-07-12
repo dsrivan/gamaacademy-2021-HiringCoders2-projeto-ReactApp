@@ -57,3 +57,12 @@ export const LinkHome = styled(Link)`
     text-decoration: none;
     border-radius: 4px;
 `;
+
+export const ErrorMessage = styled.span`
+    display: block;
+    font-size: 0.65rem;
+    color: darkviolet;
+    margin-top: 1rem;
+    text-align: center;
+    margin: 3rem 0 5rem 0;
+`;

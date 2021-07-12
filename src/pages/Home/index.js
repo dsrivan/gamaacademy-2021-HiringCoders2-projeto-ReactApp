@@ -5,11 +5,38 @@ import * as S from './styled';
 
 import { useHistory } from 'react-router-dom';
 
+import iconGitHub from '../../logos/iconGitHub.png';
+import iconLinkedIn from '../../logos/iconLinkedIn.png';
+
+const icons = {
+    iconLinkedIn: {
+        a: {
+            href: "https://www.linkedin.com/in/dsrivan/",
+            title: "Link to Ivan's LinkedIn",
+        },
+        img: {
+            src: iconLinkedIn,
+            title: "LinkedIn Icon"
+        }
+    },
+    iconGitHub: {
+        a: {
+            href: "https://github.com/dsrivan",
+            title: "Link to Ivan's GitHub",
+        },
+        img: {
+            src: iconGitHub,
+            title: "GitHub Icon",
+        }
+    },
+}
+
+
 function App() {
 
     const history = useHistory();
 
-    const [usuario, setUsuario] = useState('dsrivan');
+    const [usuario, setUsuario] = useState('');
 
     const [erro, setErro] = useState(false);
 
@@ -41,23 +68,50 @@ function App() {
                 })
                 .catch((error) => {
                     setErro(true);
-                    setTextError('Usuário não encontrado');
+                    setTextError('User not found');
                     // console.log(error.response.status)
                 });
         } else {
 
             setErro(true);
-            setTextError('Digite para pesquisar');
+            setTextError('Type a name for search');
 
         }
     }
     return (
         <S.HomeContainer>
+
+            <S.TitlePage>
+                <S.H1>
+                    GitHub
+                    <S.Span>repos</S.Span>
+                </S.H1>
+            </S.TitlePage>
+
             <S.Content>
-                <S.Input placeholder="type your name here" value={usuario} onChange={e => setUsuario(e.target.value)}></S.Input>
-                <S.Button onClick={handlePesquisa}>Pesquisar</S.Button>
+                <S.Input
+                    placeholder="type a github user's name for search"
+                    value={usuario}
+                    onChange={e => setUsuario(e.target.value)}
+                    maxLength="50"
+                >
+                </S.Input>
+                <S.Button onClick={handlePesquisa}>Search</S.Button>
             </S.Content>
+
             {erro ? <S.ErrorMessage>{textError}</S.ErrorMessage> : ''}
+
+            <S.FooterContainer>
+                <S.Footer>
+                    <S.FooterLink href={icons.iconGitHub.a.href} target="_blank">
+                        <S.FooterLinkIcon src={icons.iconGitHub.img.src} title={icons.iconGitHub.img.title}></S.FooterLinkIcon>
+                    </S.FooterLink>
+                    <S.FooterLink href={icons.iconLinkedIn.a.href} target="_blank">
+                        <S.FooterLinkIcon src={icons.iconLinkedIn.img.src} title={icons.iconLinkedIn.img.title}></S.FooterLinkIcon>
+                    </S.FooterLink>
+                </S.Footer>
+            </S.FooterContainer>
+
         </S.HomeContainer>
     );
 }
