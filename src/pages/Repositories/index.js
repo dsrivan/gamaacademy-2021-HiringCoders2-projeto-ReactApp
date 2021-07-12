@@ -4,6 +4,8 @@ import * as S from './styled';
 
 import { useHistory } from 'react-router-dom';
 
+import chevronDown from '../../images/icons/chevron-down.png';
+
 export default function Repositories() {
 
     const history = useHistory();
@@ -39,7 +41,7 @@ export default function Repositories() {
                     return (
                         <S.ListItem key={index}>
                             {repository}
-                            <S.ListItemIcon>{'>'}</S.ListItemIcon>
+                            <S.ListItemIcon src={chevronDown}></S.ListItemIcon>
                         </S.ListItem>
                     )
                 })}

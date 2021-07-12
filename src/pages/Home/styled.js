@@ -7,7 +7,7 @@ export const HomeContainer = styled.div`
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    padding-top: 17rem;
+    padding-top: 15rem;
     `;
 
 export const TitlePage = styled.div`
@@ -41,12 +41,13 @@ export const Content = styled.div`
 `;
 
 export const Input = styled.input`
-    border: 1px solid #3c3c3c;
+    border: 1px solid #d2d2d2;
     border-radius: 2rem 0 0 2rem;
     padding: 1rem 2rem;
     font-size: 1rem;
     width: 70%;
     border-right-color: #0d6efd;
+    background-color: #f4f4f4;
 
     &:focus,
     &:active {

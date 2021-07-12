@@ -9,19 +9,19 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-    text-align: center;
+    /* text-align: center;
+    background: linear-gradient(45deg, deeppink,darkviolet);
+    color: #fff; */
     font-size: 2rem;
     font-family: sans-serif;
-    background: linear-gradient(45deg, deeppink,darkviolet);
-    color: #fff;
-    padding: 10px 0;
     border-radius: 4px;
+    margin: 3rem 0 2rem 0;
+    padding: 0.5rem;
     `;
 
 export const List = styled.ul`
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 0 .5rem;
     font-family: sans-serif;
     `;
 
@@ -41,9 +41,9 @@ export const ListItem = styled.li`
     }
 `;
 
-export const ListItemIcon = styled.span`
+export const ListItemIcon = styled.img`
     display: inline-block;
-    transform: rotate(90deg);
+    width: 20px;
 `;
 
 export const LinkHome = styled(Link)`

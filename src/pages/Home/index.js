@@ -5,8 +5,8 @@ import * as S from './styled';
 
 import { useHistory } from 'react-router-dom';
 
-import iconGitHub from '../../logos/iconGitHub.png';
-import iconLinkedIn from '../../logos/iconLinkedIn.png';
+import iconGitHub from '../../images/logos/iconGitHub.png';
+import iconLinkedIn from '../../images/logos/iconLinkedIn.png';
 
 const icons = {
     iconLinkedIn: {
@@ -36,7 +36,7 @@ function App() {
 
     const history = useHistory();
 
-    const [usuario, setUsuario] = useState('');
+    const [usuario, setUsuario] = useState('dsrivan');
 
     const [erro, setErro] = useState(false);
 
