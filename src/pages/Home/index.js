@@ -60,22 +60,29 @@ function App() {
                         repositoriesName.push(repository.name);
                     });
 
-                    localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
+                    if (repositoriesName.length > 0) {
+                        localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
 
-                    setErro(false);
+                        setErro(false);
 
-                    history.push('./repositories');
+                        history.push('./repositories');
+                    } else {
+                        setErro(true);
+                        setTextError("This user theren't repositories");
+                        setUsuario("");
+                    }
+
                 })
                 .catch((error) => {
                     setErro(true);
                     setTextError('User not found');
-                    // console.log(error.response.status)
+                    setUsuario("");
                 });
         } else {
-
             setErro(true);
             setTextError('Type a name for search');
-
+            setUsuario("");
+            // console.log(error.response.status)
         }
     }
     return (

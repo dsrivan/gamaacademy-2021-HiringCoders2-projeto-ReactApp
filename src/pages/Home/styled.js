@@ -7,7 +7,7 @@ export const HomeContainer = styled.div`
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    padding-top: 15rem;
+    padding-top: 12rem;
     `;
 
 export const TitlePage = styled.div`
@@ -84,7 +84,6 @@ export const ErrorMessage = styled.span`
     font-size: .9rem;
     color: #ea566b;
     margin-top: 2rem;
-    font-family: sans-serif;
     background-color: #ffd5db;
     width: 100%;
     text-align: center;
