@@ -103,7 +103,7 @@ function App() {
                     maxLength="50"
                 >
                 </S.Input>
-                <S.Button onClick={handlePesquisa}>Search</S.Button>
+                <S.Button onClick={handlePesquisa}>Search {String.fromCharCode(8594)}</S.Button>
             </S.Content>
 
             {erro ? <S.ErrorMessage>{textError}</S.ErrorMessage> : ''}

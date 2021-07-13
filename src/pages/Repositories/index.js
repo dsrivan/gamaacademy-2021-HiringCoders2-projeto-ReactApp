@@ -102,7 +102,7 @@ export default function Repositories() {
                     </S.CardsContainer>
                     <S.ContainerVoltar>
                         <S.LinkHome to="/">
-                            another research
+                            {String.fromCharCode(8592)} another research
                         </S.LinkHome>
                     </S.ContainerVoltar>
                     <S.List>
@@ -118,7 +118,7 @@ export default function Repositories() {
                     {(repositories.length > 10) ?
                         <S.ContainerVoltar>
                             <S.LinkHome to="/">
-                                another research
+                                {String.fromCharCode(8592)} another research
                             </S.LinkHome>
                         </S.ContainerVoltar>
                         : ""}
