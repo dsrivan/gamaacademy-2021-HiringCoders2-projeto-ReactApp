@@ -14,7 +14,7 @@ export const FullContainer = styled.div`
 `;
 
 export const Header = styled.div`
-    background-color: #3752a2;
+    background-color: #0a53bf;
     width: 100%;
     min-height: 25vh;
     text-align: center;
@@ -73,10 +73,15 @@ export const Card = styled.div`
     justify-content: space-between;
     position: relative;
     overflow: hidden;
+    transition: transform .2s ease-in-out;
 
-@media (max-width: 768px) {
-    width: 100%;
-}
+    &:hover img {
+        transform: scale(2);
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const CardTitle = styled.div`
@@ -87,7 +92,7 @@ export const CardTitle = styled.div`
 export const CardBody = styled.div`
     font-size: 1.6rem;
     z-index: 2;
-    color: #3752a2;
+    color: #0a53bf;
 `;
 
 export const CardCorner = styled.div`
@@ -100,32 +105,37 @@ export const CardCorner = styled.div`
     top: 1rem;
     right: 1rem;
     border-radius: 50%;
+    background-color: rgba(10, 83, 191, .1);
 `;
 
 export const CardImage = styled.img`
     display: inline-block;
     width: 30px;
     height: 30px;
+    transition: all .1s ease-in-out;
 `;
 
 export const ContainerVoltar = styled.div`
     margin: 2.5rem .5rem 1rem;
-    color: #3752a2;
+    color: #0a53bf;
     font-weight: bold;
 `;
 
 export const LinkHome = styled(Link)`
-    background-color: #3752a2;
+    background-color: #0a53bf;
     color: #fff;
     padding: 1rem 2rem;
     border-radius: 5px;
     display: inline-block;
     text-decoration: none;
+    font-weight: normal;
+    font-size: .9rem;
 `;
 
 export const List = styled.ul`
     list-style: none;
     padding: 0 .5rem;
+    overflow: hidden;
     `;
 
 export const ListItem = styled.li`
@@ -141,7 +151,8 @@ export const ListItem = styled.li`
     transition: all .2s ease-in-out;
 
     &:hover {
-        border-color: #cecece;
+        box-shadow: 5px 5px 10px #cecece;
+        background-color: #f4f4f4;
     }
 `;
 

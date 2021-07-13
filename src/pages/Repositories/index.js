@@ -4,8 +4,6 @@ import * as S from './styled';
 
 import { useHistory } from 'react-router-dom';
 
-import chevronDown from '../../images/icons/chevron-down.png';
-
 import iconBoxes from '../../images/icons/icon-boxes.png';
 import iconCalendar from '../../images/icons/icon-calendar.png';
 import iconUser from '../../images/icons/icon-user.png';
@@ -50,7 +48,7 @@ export default function Repositories() {
             repositoriesName = JSON.parse(repositoriesName);
             setRepositories(repositoriesName);
 
-            //localStorage.clear();
+            localStorage.clear();
 
         } else {
             history.push('/');
@@ -104,7 +102,7 @@ export default function Repositories() {
                     </S.CardsContainer>
                     <S.ContainerVoltar>
                         <S.LinkHome to="/">
-                            Voltar
+                            another research
                         </S.LinkHome>
                     </S.ContainerVoltar>
                     <S.List>
@@ -120,7 +118,7 @@ export default function Repositories() {
                     {(repositories.length > 10) ?
                         <S.ContainerVoltar>
                             <S.LinkHome to="/">
-                                Voltar
+                                another research
                             </S.LinkHome>
                         </S.ContainerVoltar>
                         : ""}

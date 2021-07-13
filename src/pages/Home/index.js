@@ -97,7 +97,7 @@ function App() {
 
             <S.Content>
                 <S.Input
-                    placeholder="type a github user's name for search"
+                    placeholder="github user's name"
                     value={usuario}
                     onChange={e => setUsuario(e.target.value)}
                     maxLength="50"
