@@ -8,6 +8,10 @@ import iconBoxes from '../../images/icons/icon-boxes.png';
 import iconCalendar from '../../images/icons/icon-calendar.png';
 import iconUser from '../../images/icons/icon-user.png';
 
+let today = new Date();
+today = `${today.getFullYear()}/${(today.getMonth() + 1).toString().padStart(2, '0')}/${today.getDate().toString().padStart(2, '0')}`
+
+
 const icons = {
     boxes: {
         img: {
@@ -35,18 +39,24 @@ export default function Repositories() {
 
     const [repositories, setRepositories] = useState([]);
 
+    const [userName, setUserName] = useState([]);
+
     const [erro, setErro] = useState(true);
 
     useEffect(() => {
         let repositoriesName = localStorage.getItem('repositoriesName');
+        let userName = localStorage.getItem('userName');
 
         // if (repositoriesName !== null) {
-        if (repositoriesName) {
+        if (repositoriesName && userName) {
 
             setErro((repositoriesName.length <= 2) ? true : false);
 
             repositoriesName = JSON.parse(repositoriesName);
             setRepositories(repositoriesName);
+
+            userName = JSON.parse(userName);
+            setUserName(userName);
 
             localStorage.clear();
 
@@ -71,7 +81,7 @@ export default function Repositories() {
                     <S.CardsContainer>
                         <S.Card>
                             <S.CardTitle>User</S.CardTitle>
-                            <S.CardBody>Username</S.CardBody>
+                            <S.CardBody>{userName}</S.CardBody>
                             <S.CardCorner>
                                 <S.CardImage
                                     src={icons.user.img.src}
@@ -81,7 +91,7 @@ export default function Repositories() {
                         </S.Card>
                         <S.Card>
                             <S.CardTitle>Repositories</S.CardTitle>
-                            <S.CardBody>00</S.CardBody>
+                            <S.CardBody>{repositories.length}</S.CardBody>
                             <S.CardCorner>
                                 <S.CardImage
                                     src={icons.boxes.img.src}
@@ -91,7 +101,7 @@ export default function Repositories() {
                         </S.Card>
                         <S.Card>
                             <S.CardTitle>Research date</S.CardTitle>
-                            <S.CardBody>0000/00/00</S.CardBody>
+                            <S.CardBody>{today}</S.CardBody>
                             <S.CardCorner>
                                 <S.CardImage
                                     src={icons.calendar.img.src}
