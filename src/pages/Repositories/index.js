@@ -117,11 +117,13 @@ export default function Repositories() {
                             )
                         })}
                     </S.List>
-                    <S.ContainerVoltar>
-                        <S.LinkHome to="/">
-                            Voltar
-                        </S.LinkHome>
-                    </S.ContainerVoltar>
+                    {(repositories.length > 10) ?
+                        <S.ContainerVoltar>
+                            <S.LinkHome to="/">
+                                Voltar
+                            </S.LinkHome>
+                        </S.ContainerVoltar>
+                        : ""}
                 </S.Container>
             </S.Container>
             <S.Footer>
