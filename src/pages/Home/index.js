@@ -36,7 +36,7 @@ function App() {
 
     const history = useHistory();
 
-    const [usuario, setUsuario] = useState('dsrivan');
+    const [usuario, setUsuario] = useState('');
 
     const [erro, setErro] = useState(false);
 
