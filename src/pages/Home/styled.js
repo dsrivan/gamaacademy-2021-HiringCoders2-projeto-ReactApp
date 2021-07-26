@@ -48,6 +48,7 @@ export const Input = styled.input`
     width: 70%;
     border-right-color: #0d6efd;
     background-color: #f4f4f4;
+    outline: none;
 
     &:focus,
     &:active {
@@ -67,6 +68,7 @@ export const Button = styled.button`
     background-color: #0d6efd;
     width: 30%;
     transition: background .2s ease-in-out;
+    outline: none;
 
     &:focus,
     &:active {
